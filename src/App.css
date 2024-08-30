@@ -1,38 +1,109 @@
-.App {
-  text-align: center;
+/* HEADER CSS */
+.header_container {
+  background-color: #f2f0d8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+.logo {
+  height: 50px;
+  width: 100px;
+}
+.nav_items > ul {
+  list-style-type: none;
+  display: flex;
+}
+.nav_items > ul > li {
+  padding: 0 1rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* BODY CSS */
+.body_container {
+  padding: 0.5rem 1rem;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.search_container {
+  padding: 1rem 0rem;
+  display: flex;
+  justify-content: space-between;
 }
+/* CARD CSS */
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.card_container {
+  width: 200px;
+  background-color: #f0f0f0;
   display: flex;
   flex-direction: column;
+  padding: 0.5rem 0.5rem;
+  border-radius: 10px;
+  border: 1px solid #f5e536;
+}
+.card_container:hover {
+  cursor: pointer;
+  border: 3px solid #f5e536;
+  transition: 0.2s;
+}
+.food_img {
+  height: 100px;
+  width: 200px;
+  border-radius: 10px;
+  border: 2px solid blanchedalmond;
+}
+
+/* Notfound Page */
+/* NotFound.css */
+.not-found-container {
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  height: 100vh;
+  background-color: #f0f4f8;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.not-found-content {
+  max-width: 600px;
+  background-color: white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.not-found-title {
+  font-size: 8rem;
+  font-weight: bold;
+  color: #f5e536;
+  margin: 0;
+}
+
+.not-found-message {
+  font-size: 1.5rem;
+  color: #333;
+  margin: 20px 0;
+}
+
+.not-found-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1rem;
   color: white;
+  background-color: #f5e536;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.not-found-button:hover {
+  background-color: #e65c54;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Restaurant Menu CSS */
+.main_container {
+  /* background-color: #f5e536; */
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
