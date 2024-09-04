@@ -107,3 +107,20 @@
   justify-content: center;
   align-items: center;
 }
+
+/* Restaurant Category CSS */
+.accordion_container {
+  /* background-color: beige; */
+  width: 50rem;
+
+  padding: 1rem;
+  margin: 5px;
+  border-radius: 10px;
+  border: 1px solid rgb(153, 153, 153);
+}
+.header_container {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  cursor: pointer;
+}
