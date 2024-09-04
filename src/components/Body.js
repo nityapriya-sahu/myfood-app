@@ -76,9 +76,9 @@ const Body = () => {
           </div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "30px" }}>
             {filterRestaurants.map((item, index) => (
-              // <Link key={item.info.id} to={`/restaurants/${item.info.id}`}>
-              <RestaurantCard resData={item} />
-              // </Link>
+              <Link key={item.info.id} to={`/restaurants/${item.info.id}`}>
+                <RestaurantCard resData={item} />
+              </Link>
             ))}
           </div>
         </div>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { CDN_URL } from "../utils/constants";
 import { useParams } from "react-router-dom";
+import RestaurantCategory from "./RestaurantCategory";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
@@ -42,11 +43,21 @@ const RestaurantMenu = () => {
   if (resInfo === null) {
     return <h1>Loading...</h1>;
   }
+
+  // for future: use this itemCategory for accordion (time: 45:00)
+  const itemCategory =
+    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+      (item) =>
+        item?.card?.card?.["@type"] ===
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
+  console.log(itemCategory, "kkkkkk");
+
   return (
     <div className="main_container">
       <div className="res_card_container">
         <h1 style={{ textAlign: "center" }}>
-          {resInfo?.cards[0]?.card?.card?.info?.name}
+          {resInfo?.cards[2]?.card?.card?.info?.name}
         </h1>
         <div
           style={{
@@ -57,13 +68,13 @@ const RestaurantMenu = () => {
           }}
         >
           <img
-            src={`${CDN_URL}${resInfo?.cards[0]?.card?.card?.info?.cloudinaryImageId}`}
+            src={`${CDN_URL}${resInfo?.cards[2]?.card?.card?.info?.cloudinaryImageId}`}
             alt="menu-card"
             style={{ height: "150px", width: "300px" }}
           />
           <div>
-            <h5>{resInfo?.cards[0]?.card?.card?.info?.cuisines.join(", ")}</h5>
-            <h5>{resInfo?.cards[0]?.card?.card?.info?.costForTwoMessage}</h5>
+            <h5>{resInfo?.cards[2]?.card?.card?.info?.cuisines.join(", ")}</h5>
+            <h5>{resInfo?.cards[2]?.card?.card?.info?.costForTwoMessage}</h5>
             <h5
               style={{
                 background: "green",
@@ -74,35 +85,29 @@ const RestaurantMenu = () => {
                 padding: "3px",
               }}
             >
-              &#9734; {resInfo?.cards[0]?.card?.card?.info?.avgRating}
+              &#9734; {resInfo?.cards[2]?.card?.card?.info?.avgRating}
             </h5>
             <h5>
-              {resInfo?.cards[0]?.card?.card?.info?.areaName},{" "}
-              {resInfo?.cards[0]?.card?.card?.info?.city}
+              {resInfo?.cards[2]?.card?.card?.info?.areaName},{" "}
+              {resInfo?.cards[2]?.card?.card?.info?.city}
             </h5>
           </div>
         </div>
       </div>
       <h2>Recommended Items</h2>
-      <ul>
-        {resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards.map(
-          (item, index) => {
-            return (
-              <li key={index}>
-                {item?.card?.info?.name} - {item?.card?.info?.price / 100}/-
-              </li>
-            );
-          }
-        )}
-        {/* <li>
-          {
-            resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]
-              ?.card?.card?.itemCards[1]?.card?.info?.name
-          }{" "}
-          - {itemCards[1]?.card?.info?.price / 100}
-          /-
-        </li> */}
-      </ul>
+      {itemCategory.map((e, ind) => (
+        <RestaurantCategory key={ind} data={e?.card?.card} />
+      ))}
+
+      {/* <ul>
+        {itemCategory[2]?.card?.card?.itemCards.map((item, index) => {
+          return (
+            <li key={index}>
+              {item?.card?.info?.name} - {item?.card?.info?.price / 100}/-
+            </li>
+          );
+        })}
+      </ul> */}
     </div>
   );
 };
