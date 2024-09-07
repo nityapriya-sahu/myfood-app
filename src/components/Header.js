@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  // subscribing to the store using a selector
+  const cartItems = useSelector((store) => store.cart.items);
+  console.log(cartItems, "cartItems");
+
   const [btn, setBtn] = useState("Login");
   const btnClick = () => {
     btn === "Login" ? setBtn("Logout") : setBtn("Login");
   };
+
   return (
     <>
       <div className="header_container">
@@ -27,7 +33,10 @@ const Header = () => {
             <li>
               <Link to="/grocery">Grocery</Link>
             </li>
-            <li>Cart</li>
+            <li>
+              <Link to="/cart">Cart ({cartItems.length})</Link>
+            </li>
+            {/* Display the cart item count */}
             <button onClick={btnClick}>{btn}</button>
           </ul>
         </div>
