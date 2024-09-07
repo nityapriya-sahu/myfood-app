@@ -17,6 +17,10 @@
 .nav_items > ul > li {
   padding: 0 1rem;
 }
+.nav_items a {
+  text-decoration: none;
+  color: inherit;
+}
 
 /* BODY CSS */
 .body_container {
@@ -37,6 +41,7 @@
   padding: 0.5rem 0.5rem;
   border-radius: 10px;
   border: 1px solid #f5e536;
+  /* height: 350px; */
 }
 .card_container:hover {
   cursor: pointer;
