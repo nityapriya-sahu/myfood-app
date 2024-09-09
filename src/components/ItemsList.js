@@ -60,7 +60,9 @@ const ItemsList = (items) => {
                 borderRadius: "5px",
               }}
             />
-            <button onClick={() => handleAddItem(e)}>Add</button>
+            <button onClick={() => handleAddItem(e)} className="login_btn">
+              Add
+            </button>
           </div>
         </div>
       ))}

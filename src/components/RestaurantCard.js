@@ -13,10 +13,19 @@ const RestaurantCard = (props) => {
           className="food_img"
         />
         <h3>{resData.info.name}</h3>
-        <div>{resData.info.avgRating}</div>
-        <div>{resData.info.cuisines.join(", ")}</div>
-        <div>{resData.info.sla.slaString}</div>
-        <div>{resData.info.costForTwo}</div>
+
+        <h5>{resData.info.cuisines.join(", ")}</h5>
+        <h5>{resData.info.areaName}</h5>
+        <h4 style={{ margin: "3px" }}>{resData.info.sla.slaString}</h4>
+        <span>
+          <h4 style={{ background: "#00ad1d", color: "white" }}>
+            &#9734; {resData.info.avgRating}
+          </h4>
+          {/* <h5>•</h5> */}
+          <h4>{resData.info.sla?.lastMileTravelString ?? "2.0 km"}</h4>
+          {/* <h5>•</h5> */}
+          <h4>{resData.info.costForTwo}</h4>
+        </span>
       </div>
     </>
   );
