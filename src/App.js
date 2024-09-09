@@ -4,6 +4,7 @@ import Body from "./components/Body";
 import Header from "./components/Header";
 import { Outlet } from "react-router-dom";
 import appStore from "./utils/appStore";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Provider store={appStore}>
         <Header />
         <Outlet />
+        <Footer />
       </Provider>
     </>
   );

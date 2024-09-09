@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { CDN_URL } from "../utils/constants";
 import { useParams } from "react-router-dom";
 import RestaurantCategory from "./RestaurantCategory";
+import { MenuShimmer } from "./Shimmer";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
@@ -41,7 +42,7 @@ const RestaurantMenu = () => {
   //   );
 
   if (resInfo === null) {
-    return <h1>Loading...</h1>;
+    return <MenuShimmer />;
   }
 
   // for future: use this itemCategory for accordion (time: 45:00)
@@ -94,7 +95,7 @@ const RestaurantMenu = () => {
           </div>
         </div>
       </div>
-      <h2>Recommended Items</h2>
+      {/* <h2>Recommended Items</h2> */}
       {itemCategory.map((e, ind) => (
         <RestaurantCategory key={ind} data={e?.card?.card} />
       ))}

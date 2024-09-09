@@ -10,7 +10,7 @@ const RestaurantCategory = (data) => {
   return (
     <div>
       <div className="accordion_container">
-        <div className="header_container" onClick={handleClick}>
+        <div className="cat_header_container" onClick={handleClick}>
           {data?.data?.title}&nbsp;({data?.data?.itemCards.length}){" "}
           {!showItems ? <span>&#9660;</span> : <span>&#9650;</span>}
         </div>

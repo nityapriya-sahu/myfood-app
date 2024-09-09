@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
-import { resCard } from "../utils/mockData";
 import { Link } from "react-router-dom";
+import Shimmer from "./Shimmer";
 
 // https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.99740&lng=79.00110&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING
 // https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.99740&lng=79.00110&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING
@@ -37,12 +37,15 @@ const Body = () => {
   return (
     <>
       {filterSearch.length === 0 ? (
-        <h1>Loading...</h1>
+        <Shimmer />
       ) : (
         <div className="body_container">
           <div className="search_container">
-            <div>
+            <div></div>
+            <div style={{ display: "flex", justifyContent: "center" }}>
               <input
+                className="search_input"
+                placeholder="Search a restaurant you want..."
                 type="text"
                 name="textinput"
                 value={searchText}
@@ -50,6 +53,7 @@ const Body = () => {
               />
               &nbsp;
               <button
+                className="search_btn"
                 onClick={() => {
                   const realSearchData = filterSearch.filter((res) =>
                     res.info.name
@@ -63,6 +67,7 @@ const Body = () => {
               </button>
             </div>
             <button
+              className="filter_search"
               onClick={() => {
                 const data = filterSearch.filter(
                   (res) => res.info.avgRating > 4.5
@@ -71,10 +76,20 @@ const Body = () => {
                 setFilterRestaurants(data);
               }}
             >
-              Filter Search
+              Filter
             </button>
           </div>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "30px" }}>
+          <div
+            style={{
+              width: "auto",
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "30px",
+              justifyContent: "center",
+              alignItems: "center",
+              alignSelf: "stretch",
+            }}
+          >
             {filterRestaurants.map((item, index) => (
               <Link
                 key={item.info.id}

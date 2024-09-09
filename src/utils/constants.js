@@ -3,3 +3,9 @@ export const CDN_URL =
 
 export const LOGO_URL =
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0UhLKALBi5PVOyXGJIZtSfmcWXCuPAm9qyA&s";
+
+// shimmer card unit
+export const shimmer_card_unit = 20;
+
+// shimmer Menu card unit
+export const shimmer_menu_card_unit = 10;

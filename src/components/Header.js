@@ -17,16 +17,18 @@ const Header = () => {
     <>
       <div className="header_container">
         <div className="logo_container">
-          <img src={LOGO_URL} alt="logo" className="logo" />
+          <Link to="/">
+            <img src={LOGO_URL} alt="logo" className="logo" />
+          </Link>
         </div>
         <div className="nav_items">
           <ul>
             <li>
               <Link to="/">Home</Link>
             </li>
-            <li>
+            {/* <li>
               <Link to="/about">About</Link>
-            </li>
+            </li> */}
             <li>
               <Link to="/contact">Contact</Link>
             </li>
@@ -37,7 +39,11 @@ const Header = () => {
               <Link to="/cart">Cart ({cartItems.length})</Link>
             </li>
             {/* Display the cart item count */}
-            <button onClick={btnClick}>{btn}</button>
+            <li>
+              <button onClick={btnClick} className="login_btn">
+                {btn}
+              </button>
+            </li>
           </ul>
         </div>
       </div>
